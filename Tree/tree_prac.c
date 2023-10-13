@@ -91,13 +91,13 @@ int main()
             break;
 
         case 11:
-            printf("\nThe Height of the tree = %d\n",height(tree));
+            printf("\nThe Height of the tree = %d\n", height(tree));
             break;
-        
+
         case 12:
             tree = deleteTree(tree);
             break;
-        
+
         default:
             printf("Invalid choice");
         }
@@ -213,7 +213,7 @@ struct node *deleteElement(struct node *tree, int val)
     if (tree->left == NULL)
     {
         printf("\n The Tree is emptyn\n");
-        return tree;
+        return NULL;
     }
     parent = tree;
     cur = tree->left;
@@ -340,12 +340,13 @@ int height(struct node *tree)
     }
 }
 
-struct node  *deleteTree(struct node *tree)
+struct node *deleteTree(struct node *tree)
 {
     if (tree != NULL)
     {
         deleteTree(tree->left);
         deleteTree(tree->right);
         free(tree);
+        tree = NULL;
     }
 }
