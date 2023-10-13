@@ -23,10 +23,86 @@ int totalExternalNode(struct node *);
 int totalInternalNode(struct node *);
 int height(struct node *);
 void createTree(struct node *);
-void deleteTree(struct node *);
+struct node *deleteTree(struct node *);
 
-void main()
+int main()
 {
+    int option, val;
+    struct node *tree;
+    struct node *ptr;
+    createTree(tree);
+    do
+    {
+        printf("\n *******Main Menu*******");
+        printf("\n 1.Insert Element \n 2.Pre Order Traversal \n 3.In Order Traversal \n 4.Post Order Traversal \n 5.Find the samllest Element \n 6.Find the largest Element \n 7.Delete the Element \n 8.Count the total number of nodes \n 9.Count the total number of Internal nodes \n 10.Count the total number of External nodes \n 11.Determine the height of the tree \n 12.Delete the tree \n 13.exit\n");
+
+        printf("\n\n Enter your choice : \n\n");
+        scanf("%d", &option);
+
+        switch (option)
+        {
+        case 1:
+            printf("\nEnter the value to be inserted for the new node: \n");
+            scanf("%d", &val);
+            tree = insertElement(tree, val);
+            break;
+
+        case 2:
+            printf("\nThe elements are: \n");
+            preOrderTraversal(tree);
+            break;
+
+        case 3:
+            printf("\nThe elements are: \n");
+            inOrderTraversal(tree);
+            break;
+
+        case 4:
+            printf("\nThe elements are: \n");
+            postOrderTraversal(tree);
+            break;
+
+        case 5:
+            ptr = findSmallestElement(tree);
+            printf("\nThe samllest elemenet is: %d", ptr->data);
+            break;
+
+        case 6:
+            ptr = findLargestElement(tree);
+            printf("\nThe largest elemenet is: %d", ptr->data);
+            break;
+
+        case 7:
+            printf("\nEnter the value to be deleted\n");
+            scanf("%d", &val);
+            tree = deleteElement(tree, val);
+            break;
+
+        case 8:
+            printf("\nTotal number of nodes = %d\n", totalNode(tree));
+            break;
+
+        case 9:
+            printf("\nTotal number of external nodes = %d\n", totalExternalNode(tree));
+            break;
+
+        case 10:
+            printf("\nTotal number of internal nodes = %d\n", totalInternalNode(tree));
+            break;
+
+        case 11:
+            printf("\nThe Height of the tree = %d\n",height(tree));
+            break;
+        
+        case 12:
+            tree = deleteTree(tree);
+            break;
+        
+        default:
+            printf("Invalid choice");
+        }
+    } while (option != 13);
+    return 0;
 }
 
 void createTree(struct node *tree)
@@ -264,7 +340,7 @@ int height(struct node *tree)
     }
 }
 
-void deleteTree(struct node *tree)
+struct node  *deleteTree(struct node *tree)
 {
     if (tree != NULL)
     {
