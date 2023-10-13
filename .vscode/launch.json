@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Github/DataStructures/DataStructures/Queue",
-      "program": "c:/Github/DataStructures/DataStructures/Queue/build/Debug/outDebug",
+      "cwd": "c:/Github/DataStructures/DataStructures/Tree",
+      "program": "c:/Github/DataStructures/DataStructures/Tree/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
